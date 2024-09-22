@@ -1,13 +1,11 @@
 import { Router } from "express";
+import { validationMiddleware } from "../middlewares/validation";
+import MessageService from "../services/messagesService";
 
 const messageController = Router();
 
-messageController.post("/", (req, res) => {
-  console.log("post message");
-});
+messageController.post("/", validationMiddleware, MessageService.createMessage);
 
-messageController.get("/", (req, res) => {
-  console.log("get messages");
-});
+messageController.get("/", MessageService.getMessages);
 
 export default messageController;

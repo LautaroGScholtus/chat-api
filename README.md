@@ -15,7 +15,7 @@ Asegúrate de tener instalado lo siguiente en tu máquina:
 1. **Clona el repositorio**:
 
    ```bash
-   git clone https://github.com/tu-usuario/express-typescript-app.git
+   git clone https://github.com/LautaroGScholtus/chat-api.git
    cd express-typescript-app
    ```
 

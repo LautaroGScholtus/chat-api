@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import messageController from "./controllers/messageController";
 
 const app = express();
