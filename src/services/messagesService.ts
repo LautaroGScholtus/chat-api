@@ -19,7 +19,7 @@ export default {
     return res.status(201).send({ message, username });
   },
 
-  getMessages: async (_, res: Response) => {
+  getMessages: async (req: Request, res: Response) => {
     return res.status(200).json({
       messages,
       count: messages.length,
