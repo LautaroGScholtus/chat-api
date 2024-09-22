@@ -10,7 +10,7 @@ export default {
     const { message, username } = req.body;
 
     // Creamos un nuevo mensaje
-    const newMessage = { message, username, timestamp: new Date() };
+    const newMessage: Message = { message, username, timestamp: new Date() };
 
     // Agregame el nuevo mensaje al array
     messages.push(newMessage);
@@ -19,7 +19,7 @@ export default {
     return res.status(201).send({ message, username });
   },
 
-  getMessages: async (req: Request, res: Response) => {
+  getMessages: async (_, res: Response) => {
     return res.status(200).json({
       messages,
       count: messages.length,

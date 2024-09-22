@@ -6,6 +6,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+app.get("/ping", (req, res) => {
+  return res.status(200).json({ message: "Pong" });
+});
+
 app.use("/api/messages", messageController);
 
 app.listen(PORT, () => {
