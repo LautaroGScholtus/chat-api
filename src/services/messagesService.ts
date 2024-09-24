@@ -25,4 +25,11 @@ export default {
       count: messages.length,
     });
   },
+  clearMessages: async (req: Request, res: Response) => {
+    messages = [];
+    return res.status(200).json({
+      messages,
+      count: messages.length,
+    });
+  },
 };
