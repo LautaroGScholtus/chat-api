@@ -22,7 +22,12 @@ app.use("/api/messages", messageController);
 
 // Socket Server
 const server = createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "*", // Allow all origins or specify a list
+    methods: ["GET", "POST"],
+  },
+});
 
 io.on("connection", (socket) => {
   //When connectin to the socket return all messages
@@ -31,7 +36,7 @@ io.on("connection", (socket) => {
 
   socket.on("message", (messageData) => {
     // Listen to message events and store them.
-    const { message, username } = JSON.parse(messageData);
+    const { message, username } = messageData;
 
     if (!message || !username) return;
     const newMessage: Message = {
